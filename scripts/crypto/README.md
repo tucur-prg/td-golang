@@ -1,4 +1,9 @@
 
+# random
+
+[Goのmath/randとcrypto/rand #Go - Qiita](https://qiita.com/crifff/items/b116e6235fedcd18e0de)  
+
+
 # ECDSA
 
 [Golang ECDSA (Elliptic Curve Digital Signature Algorithm) example, generate Private/Public key pairs, verify and test](https://gist.github.com/LukaGiorgadze/85b9e09d2008a03adfdfd5eea5964f93)  

@@ -1,4 +1,18 @@
 
+# constructor
+
+構造体の場合はnew関数を使うよりも、構造体リテラルを使用してインスタンスを直接初期化する方が一般的です。
+
+new関数を使用するとヒープメモリにインスタンスが割り当てられます。
+
+大量の小さなオブジェクトを頻繁に生成する場合は、メモリ使用量やガベージコレクションに影響を与える可能性があるので注意しながら実装する必要があります。
+
+[Go言語で完全コンストラクタパターンを実装する #PHP - Qiita](https://qiita.com/kbys-fumi/items/669db4385c3e8471088a)
+
+https://go.dev/doc/effective_go#composite_literals
+
+https://stackoverflow.com/questions/34774615/should-a-constructor-function-return-an-error-or-a-null-value
+
 
 # receiver
 
