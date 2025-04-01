@@ -63,6 +63,16 @@
 
 > 初期化代入（:=）するとグローバルじゃなくてローカル変数になってしまう
 
+
+## Named return values
+
+https://go.dev/doc/effective_go#named-results
+
+https://go.dev/tour/basics/7
+
+[GoのNamed return valueについてメリデメを考える](https://zenn.dev/yuyu_hf/articles/c7ab8e435509d2)  
+
+
 # defer
 
 [Goのdefer文を使うときに気をつけること - Yappli Tech Blog](https://tech.yappli.io/entry/understanding-defer-in-go)  

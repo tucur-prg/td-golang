@@ -76,3 +76,7 @@ func h(c echo.Context) error {
 [Static | Echo](https://echo.labstack.com/docs/middleware/static)  
 > 静的ファイルの扱い
 
+[Graceful Shutdown | Echo](https://echo.labstack.com/docs/cookbook/graceful-shutdown)  
+
+
+
