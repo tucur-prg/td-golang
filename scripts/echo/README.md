@@ -78,5 +78,6 @@ func h(c echo.Context) error {
 
 [Graceful Shutdown | Echo](https://echo.labstack.com/docs/cookbook/graceful-shutdown)  
 
+[echoでgraceful restart - DevDevデブ!!](https://stk132.hatenablog.com/entry/2017/09/26/022021)  
 
 
