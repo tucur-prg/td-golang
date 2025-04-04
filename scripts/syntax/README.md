@@ -79,6 +79,14 @@ https://go.dev/tour/basics/7
 
 > defer文はifやforなどの制御構文の一種で、以下のように使うことで与えられた処理を関数がreturnされた後や関数の末尾に到達した後に実行させることができます。
 
+
+# channels
+
+[Go 言語のチャネル - Go言語の基礎 - Go 言語入門](https://golang.keicode.com/basics/go-channel.php)  
+
+[Go で１行でgoroutineデッドロックを起こす方法](https://zenn.dev/zawawahoge/articles/fd533a54ee6e2b)  
+
+
 # switch
 
 [Go言語(golang) switch文の書き方 - golangの日記](https://golang.hateblo.jp/entry/2019/10/07/225026)  
