@@ -10,6 +10,13 @@ func main() {
 
 	p := NewPerson()
 	fmt.Printf("%T %p: %+v\n", p, p, p)
+
+	q := p
+	fmt.Printf("%T %p: %+v\n", q, q, q)
+
+	q.Name = "John"
+	p.Age = 20
+	fmt.Printf("%+v == %+v\n", p, q)
 }
 
 type Person struct {
