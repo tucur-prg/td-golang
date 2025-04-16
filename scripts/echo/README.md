@@ -69,7 +69,35 @@ func h(c echo.Context) error {
 
 # Error Handling
 
-[Error Handling | Echo](https://echo.labstack.com/docs/error-handling)  
+[Error Handling | Echo](https://echo.labstack.com/docs/error-handling)
+
+# profiling
+
+## pprof
+
+https://pkg.go.dev/net/http/pprof
+
+https://github.com/google/pprof#basic-usage
+
+[Go の net/http/pprof で CPU や Memory を profile する流れと内部実装 - sambaiz-net](https://www.sambaiz.net/article/238/)
+
+```sh
+docker run --rm -it golang:1.23-bullseye bash
+
+apt-get update && apt install -y graphviz
+
+go tool pprof http://localhost:6060/debug/pprof/profile?seconds=10
+```
+
+[golang の net/http/pprof を触ってみたメモ - sonots:blog](https://sonots.livedoor.blog/archives/39879160.html)  
+> blocking profiler を有効にするために runtime.SetBlockProfileRateを呼んでいる。
+
+[pprof について](https://zenn.dev/muroon/articles/adf577f563c806)
+
+## trace
+
+[golang でのデバッグに非常に便利な go tool trace - 理系学生日記](https://kiririmode.hatenablog.jp/entry/20190506/1557097529)  
+
 
 # etc
 

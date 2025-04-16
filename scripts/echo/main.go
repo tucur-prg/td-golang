@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"net/http"
+	_ "net/http/pprof"
 	"encoding/json"
+	"io/ioutil"
 	"embed"
+	"runtime"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -22,6 +25,13 @@ var app embed.FS
 
 func main() {
 	fmt.Println("--- start ---")
+
+	runtime.SetBlockProfileRate(1)
+	runtime.SetMutexProfileFraction(1)
+	go func() {
+		fmt.Println("server")
+		fmt.Println(http.ListenAndServe("0.0.0.0:6060", nil))
+	}()
 
 	e := echo.New()
 	e.Validator = my.NewValidator()
@@ -117,6 +127,22 @@ func main() {
 			fmt.Println(c.Echo().Reverse("users", "hoge"))
 			return c.String(http.StatusOK, "ok!")
 		}).Name = "users"
+	}
+	{
+		e.GET("/net", func(c echo.Context) error {
+			url := "https://jsonplaceholder.typicode.com/todos/1"
+			resp, err := http.Get(url)
+			if err != nil {
+				return c.NoContent(http.StatusInternalServerError)
+			}
+
+			byteArray, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				return c.NoContent(http.StatusInternalServerError)
+			}
+
+			return c.String(http.StatusOK, string(byteArray) + "\n")
+		})
 	}
 
 	e.Logger.Fatal(e.Start(":9090"))
