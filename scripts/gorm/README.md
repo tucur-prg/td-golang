@@ -88,6 +88,16 @@ err := db.
 
 [gormのscopesが便利 #Go - Qiita](https://qiita.com/gougyan/items/86f7da4d17a26752a08e)
 
+### Delete
+
+https://gorm.io/ja_JP/docs/delete.html
+
+> gorm.DeletedAt フィールドがモデルに含まれている場合、そのモデルは自動的に論理削除されるようになります。
+
+https://gorm.io/ja_JP/docs/constraints.html
+
+
+
 ## Customize
 
 [データ型のカスタマイズ | GORM - The fantastic ORM library for Golang, aims to be developer friendly.](https://gorm.io/ja_JP/docs/data_types.html)  

@@ -62,7 +62,23 @@ type User struct {
 //	Key       OrgField `gorm:"hoge:fuga"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt
+}
+
+type Organization struct {
+	ID        string `gorm:"primarykey;size:16"`
+	Name      string `gorm:"index"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+type OrganizationUser struct {
+	ID             string `gorm:"primarykey;size:16"`
+	OrganizationID string
+	Organization   Organization `gorm:"foreignKey:OrganizationID"`
+	UserID         string
+	User           User  `gorm:"constraint:OnDelete:CASCADE"`
+	CreatedAt      time.Time
+	UpdatedAt      time.Time
 }
 
 func main() {
@@ -73,8 +89,13 @@ func main() {
 	  panic("failed to connect database")
 	}
 
+	// 外部キー制約をONにする
+	db.Exec("PRAGMA foreign_keys = ON;")
+
 	db.AutoMigrate(
 		&User{},
+		&Organization{},
+		&OrganizationUser{},
 	)
 
 //	db.Create(&User{ID: "0001", Name: "太郎", Key: OrgField{String: "search1", Valid: true}})
@@ -110,4 +131,12 @@ func main() {
 	fmt.Println("---- Search Pattern 3 ----")
 	fmt.Println(u3)
 */
+
+	// 外部キー
+	db.Create(&User{ID: "1001", Name: "山田"})
+	db.Create(&Organization{ID: "0001", Name: "ECShop"})
+	db.Create(&OrganizationUser{ID: "0001", OrganizationID: "0001", UserID: "1001"})
+
+	db.Delete(&User{ID: "1001"})
+
 }
